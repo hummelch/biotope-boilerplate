@@ -6,7 +6,7 @@ interface XWikiTemplateData {
 
 export default (render: Function, data: XWikiTemplateData) => {
     const displayTitle = () => {
-        if(!data.items.data.length) {
+        if(Object.keys(data.items).length) {
             return data.items.data.funnyNewsCollection.items[0].title;
         }
     }
