@@ -5,13 +5,15 @@ interface XWikiTemplateData {
 }
 
 export default (render: Function, data: XWikiTemplateData) => {
+    const displayTitle = () => {
+        if(!data.items.data.length) {
+            return data.items.data.funnyNewsCollection.items[0].title;
+        }
+    }
     return render`
         <style>${styles.toString()}</style>
         <div>
-        <div>
-          ${data.items.map(item => {
-               return `<h1>${item.id}</h1> `
-            })}
+         ${displayTitle()}
         </div>
     `;
 }
